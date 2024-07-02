@@ -186,11 +186,13 @@ if [[ "$(yq --output-format=json e '(.. | select(tag == "!!str")) |= envsubst' "
       echo "hide files = $(_jq '.hidefiles')" >> /etc/samba/smb.conf
     fi
     if [[ "$(_jq '.recycle')" != "null" ]] && [[ -n "$(_jq '.recycle')" ]]; then
-      echo "vfs objects = recycle" >> /etc/samba/smb.conf
+      echo "vfs objects = catia fruit streams_xattr" >> /etc/samba/smb.conf
+      echo "fruit:time machine = yes" >> /etc/samba/smb.conf
+      echo "comment = Time Machine Backup" >> /etc/samba/smb.conf
       echo "recycle:repository = .recycle" >> /etc/samba/smb.conf
       echo "recycle:keeptree = yes" >> /etc/samba/smb.conf
       echo "recycle:versions = yes" >> /etc/samba/smb.conf
-      echo "fruit:time machine = yes" >> /etc/samba/smb.conf
+      
     fi
   done
 fi

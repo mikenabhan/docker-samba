@@ -190,6 +190,7 @@ if [[ "$(yq --output-format=json e '(.. | select(tag == "!!str")) |= envsubst' "
       echo "recycle:repository = .recycle" >> /etc/samba/smb.conf
       echo "recycle:keeptree = yes" >> /etc/samba/smb.conf
       echo "recycle:versions = yes" >> /etc/samba/smb.conf
+      echo "fruit:time machine = yes" >> /etc/samba/smb.conf
     fi
   done
 fi
